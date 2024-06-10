@@ -43,8 +43,9 @@ const Signup = () => {
     const newUser = { ...formData, cart: [] };
     users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));
+    setPopupType("Login")
+    // setIsPopUpOpen(false);
 
-    setIsPopUpOpen(false);
   };
 
   return (

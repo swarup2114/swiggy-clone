@@ -8,19 +8,23 @@ import "../StyleComponents/hotelItems.css"
 const API_BASE_URL = "https://backend-nodejs-suby.onrender.com";
 
 const HotelItems = () => {
-    const {  setUserCart } = useContext(popupContext);
+    const {isPopUpOpen, setIsPopUpOpen,  setUserCart } = useContext(popupContext); 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const { hotelId } = useParams();
 
     const addCartItem = (item) => {
-       
-        let userData = JSON.parse(localStorage.getItem("currentUser")) || [];
-     
+        let userData = JSON.parse(localStorage.getItem("currentUser"));
+
+        if (!userData) {
+            setIsPopUpOpen(!isPopUpOpen);
+            return;
+        }
+
         let updatedCart = [...userData.cart];
         updatedCart.push(item);
-         userData.cart = updatedCart;
+        userData.cart = updatedCart;
         localStorage.setItem("currentUser", JSON.stringify(userData));
         setUserCart(updatedCart);
     }

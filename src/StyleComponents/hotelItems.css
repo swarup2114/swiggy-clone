@@ -1,7 +1,7 @@
 .product-container {
     display: flex;
     flex-direction: column;
-    padding: 0 20px;
+    padding: 0 200px; /* Default padding for larger screens */
 }
 
 .product-lists {
@@ -9,7 +9,8 @@
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
-      flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 10px 30px; /* Default padding for larger screens */
 }
 
 .product-lists img {
@@ -47,17 +48,12 @@
 }
 
 .hotel-name {
-    margin: 20px 50px;
+    margin: 20px 250px; /* Default margin for larger screens */
 }
 
-@media (min-width: 768px) {
-    
+@media (max-width: 1024px) {
     .product-container {
         padding: 0 50px;
-    }
-
-    .product-lists {
-        padding: 10px 30px;
     }
 
     .hotel-name {
@@ -65,16 +61,42 @@
     }
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 768px) {
     .product-container {
-        padding: 0 200px;
+        padding: 0 20px;
     }
 
     .product-lists {
-        padding: 10px 30px;
+        padding: 0 20px;
     }
 
     .hotel-name {
-        margin: 20px 250px;
+        margin: 20px 50px;
+    }
+}
+
+@media (max-width: 468px) {
+    .product-container {
+        padding: 0 10px;
+    }
+
+    .product-lists {
+        padding: 0 10px;
+    }
+
+    .hotel-name {
+        margin: 20px 20px;
+    }
+
+    .add-btn {
+        bottom: 10px;
+        right: 69px;
+        width: 60px;
+        font-size: 12px;
+    }
+
+    .product-lists img {
+        width: 80px;
+        height: 80px;
     }
 }

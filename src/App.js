@@ -10,6 +10,7 @@ import LoginPage from './components/Pages/LoginPage';
 import Nopage from './components/Pages/Nopage';
 import Cart from './components/Pages/Cart';
 
+
 export const popupContext=createContext()
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
   const [popupType, setPopupType] = useState('signup');
   const [currentUser, setCurrentUser] = useState(null);
   const [userCart,setUserCart]=useState([])
+  
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
@@ -32,11 +34,13 @@ const App = () => {
      {isPopUpOPen && popupType==="signup" && <Signup/>}
      {isPopUpOPen && popupType==="Login" && <LoginPage/>}
     <NavBar/>
+  
       <Routes>
         <Route path='/' element={   <Home/>}/>
         <Route path="/product/:hotelId" element={<HotelItems/>}/>
         <Route path="/cart" element={<Cart/>}/>
         <Route path="*" element={<Nopage/>}/>
+
       </Routes>
     </popupContext.Provider>
  
