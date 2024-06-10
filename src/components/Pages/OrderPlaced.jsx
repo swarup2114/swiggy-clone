@@ -43,7 +43,7 @@ const OrderPlaced = ({setOrderPlacedContainer}) => {
             localStorage.setItem('currentUser', JSON.stringify(user));
           }
           setOrderPlacedContainer(false)
-          usenav("/home")
+          usenav("/")
         },1000)
         }
         return updatedProgress;
@@ -98,7 +98,7 @@ const OrderPlaced = ({setOrderPlacedContainer}) => {
               />
             </label>
           </div>
-          {/* <div>
+          <div>
             <label>
               Address:
               <input
@@ -144,7 +144,7 @@ const OrderPlaced = ({setOrderPlacedContainer}) => {
                 onChange={handleChange}
               />
             </label>
-          </div> */}
+          </div>
           <button type="submit">Deliver Here</button>
         </form>
       )}
